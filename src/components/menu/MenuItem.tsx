@@ -1,6 +1,7 @@
 /*eslint-disable @typescript-eslint/no-explicit-any */ 
 import Image from 'next/image'
 import { formatCurrency } from '@/constants/formatters'
+import AddToCartButton from './AddToCartButton'
 
 export default function MenuItem({item}: {item: any} ) {
   return (
@@ -17,6 +18,7 @@ export default function MenuItem({item}: {item: any} ) {
           <p className='text-gray-500 text-sm line-clamp-3 '>
               {item.description}
            </p>
+           <AddToCartButton item={item}/>
     </li>
   )
 }
