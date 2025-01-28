@@ -2,8 +2,10 @@ import MainHeading from '@/components/main-heading'
 import Image from 'next/image'
 import { formatCurrency } from '@/constants/formatters'
 import Menu from '@/components/menu'
+import { db } from "@/lib/prisma";
 
-export default function BestSellers() {
+
+export default async function BestSellers() {
     const bestsellers = [
         {
             id: crypto.randomUUID(),
@@ -27,6 +29,14 @@ export default function BestSellers() {
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         }
     ]
+    const sizes = await db.Size.create({
+        data: {
+            name: "SMALL",
+            price: 0,
+            productId: '1'
+        },
+    });
+     console.log(sizes);
   return (
     <section>
        <div className='container'>
